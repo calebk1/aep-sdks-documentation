@@ -1,7 +1,7 @@
-# Push Messaging
+# Push messaging
 
 {% hint style="warning" %}
-This troubleshooting guide requires [Project Griffon](../../beta/project-griffon/). For more information about access and how to set up Project Griffon, see the [documentation](../../beta/project-griffon/).
+This troubleshooting guide requires [Project Griffon](../../beta/project-griffon/). For more information about access and how to set up Project Griffon, please read the [Project Griffon documentation](../../beta/project-griffon/).
 {% endhint %}
 
 When implementing push messaging via the Adobe Experience Platform Mobile SDK, you can validate the client-side implementation by verifying that you completed the following steps:
@@ -11,12 +11,12 @@ When implementing push messaging via the Adobe Experience Platform Mobile SDK, y
 3. [Ensure user opt in for push in Adobe Analytics](troubleshooting-push.md#validate-analytics-request-with-push-optin).
 4. [Confirm user ID is correctly set \(and is same from steps 2 and 3, above](troubleshooting-push.md#validate-the-user-id-is-correct)\).
 
-## Pass the Push Identifier to the SDK
+## Pass the push identifier to the SDK
 
-The `setPushIdentifier` API sets the device token for push notifications in the SDK. This results in a few network calls made to the requisite Adobe servers to associate the user with the push token.
+The `setPushIdentifier` API sets the device token for push notifications in the SDK. This results in a few network calls made to the necessary Adobe servers to associate the user with the push token.
 
 {% hint style="warning" %}
-If SDK privacy status is`optedout`, the push identifier will not be set.
+If SDK privacy status is `optedout`, the push identifier will not be set.
 {% endhint %}
 
 ### setPushIdentifier
@@ -25,13 +25,13 @@ If SDK privacy status is`optedout`, the push identifier will not be set.
 {% tab title="Android" %}
 ### Java
 
-#### Syntax
+**Syntax**
 
 ```java
 public static void setPushIdentifier(final String pushIdentifier);
 ```
 
-#### Example
+**Example**
 
 ```java
 // retrieve the token from either GCM or FCM, and pass it to the SDK
@@ -40,15 +40,15 @@ MobileCore.setPushIdentifier(token);
 {% endtab %}
 
 {% tab title="iOS" %}
-### Objective C
+### Objective-C
 
-#### Syntax
+**Syntax**
 
 ```objectivec
 + (void) setPushIdentifier: (nullable NSData*) deviceToken;
 ```
 
-#### Example
+**Example**
 
 ```objectivec
 // pass the deviceToken that the APNS has assigned to the device
@@ -57,13 +57,13 @@ MobileCore.setPushIdentifier(token);
 
 ### Swift
 
-#### Syntax
+**Syntax**
 
 ```swift
 Void setPushIdentifier(deviceToken: Data?)
 ```
 
-#### Example
+**Example**
 
 ```swift
 // pass the deviceToken that the APNS has assigned to the device
@@ -74,7 +74,12 @@ ACPCore.setPushIdentifier(deviceToken)
 {% tab title="React Native" %}
 ### Javascript
 
-#### Example
+**Syntax**
+```jsx
+ACPCore.setPushIdentifier(deviceToken)
+```
+
+**Example**
 
 ```jsx
 ACPCore.setPushIdentifier("pushIdentifier");
